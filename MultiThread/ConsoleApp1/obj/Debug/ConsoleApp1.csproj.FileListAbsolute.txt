@@ -1,0 +1,7 @@
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\lenga\Desktop\MultiThread\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
