@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,7 @@ namespace MultiThread2
 
             MTMergeSort m = new MTMergeSort();
 
-            string[] strList = GenerateRandomStrings(5000); // 5,000 random strings
+            string[] strList = GenerateRandomStrings(5001); // 5,000 random strings
             List<string> lst = new List<string>(m.MergeSort(strList));
 
             for (int i = 0; i < lst.Count; i++)
@@ -51,28 +51,43 @@ namespace MultiThread2
     {
 
 
-        public List<string> ThreadMerge(List<string> left, List<string> right)
+        public List<string> ThreadMerge(List<string> left, List<string> right) //a function to merge the 2 created lists
         {
-            List<string> result = new List<string>();
-            int i = 0, j = 0;
+            List<string> result = new List<string>(); //creating a new list to store the final list
+            int leftIndex = 0; //the current index of the left list
+            int rightIndex = 0; //the current index of the right list
 
-            while (i < left.Count && j < right.Count)
+            while (leftIndex < left.Count && rightIndex < right.Count) //As long as we haven't incremented both indicies to the end of their list, we keep comparig between them
             {
-                if (string.Compare(left[i], right[j]) <= 0)
-                    result.Add(left[i++]);
+                if (string.Compare(left[leftIndex], right[rightIndex]) < 0)
+                { //if the curret first left letter is lower, add it and increment the index
+                    result.Add(left[leftIndex]);
+                    leftIndex += 1;
+                }
                 else
-                    result.Add(right[j++]);
+                { //else the right one is lower, so add it and increment the index
+                    result.Add(right[rightIndex]);
+                    rightIndex += 1;
+                }
             }
 
-            while (i < left.Count) result.Add(left[i++]);
-            while (j < right.Count) result.Add(right[j++]);
+            while (leftIndex < left.Count) //if we didn't finish loading the 1st list but finished the second one, load the 1st list
+            {
+                result.Add(left[leftIndex]);
+                leftIndex += 1;
+            }
+            while (rightIndex < right.Count) //else, finish adding the right list
+            {
+                result.Add(right[rightIndex]);
+                rightIndex += 1;
+            }
 
-            return result;
+            return result; //finally return the result
         }
 
         public void SortStringArray(string[] strList)
         {
-            Array.Sort(strList, (x, y) => string.Compare(x, y));
+            Array.Sort(strList, (x, y) => string.Compare(x, y)); //usig the sort method from the array class, changing the comparison function to the string compare one
         }
 
         public List<string> ThreadSortMerge(string[] strList, int start, int end, int nMin)
