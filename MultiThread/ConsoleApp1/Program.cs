@@ -11,40 +11,6 @@ namespace MultiThread2
         static void Main(string[] args)
         {
 
-            MTMergeSort m = new MTMergeSort();
-
-            string[] strList = GenerateRandomStrings(5001); // 5,000 random strings
-            List<string> lst = new List<string>(m.MergeSort(strList));
-
-            for (int i = 0; i < lst.Count; i++)
-            {
-                Console.WriteLine(lst[i]);
-            }
-
-
-            Console.WriteLine(strList.Length);
-            Console.ReadLine();  // Keeps the console window open until you press Enter
-        }
-        public static string[] GenerateRandomStrings(int count, int minLength = 5, int maxLength = 10)
-        {
-            Random rng = new Random();
-            string chars = "abcdefghijklmnopqrstuvwxyz";
-            string[] result = new string[count];
-
-            for (int i = 0; i < count; i++)
-            {
-                int length = rng.Next(minLength, maxLength + 1);
-                char[] str = new char[length];
-
-                for (int j = 0; j < length; j++)
-                {
-                    str[j] = chars[rng.Next(chars.Length)];
-                }
-
-                result[i] = new string(str);
-            }
-
-            return result;
         }
     }
     class MTMergeSort
